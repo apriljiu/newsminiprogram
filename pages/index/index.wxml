@@ -1,0 +1,32 @@
+<view class='type' >
+  <view class='type-item' wx:for='{{[1,2,3,4,5,6,7]}}'>国内</view>
+</view>
+
+<view class='body'>
+  <view class='featured-wrapper'>
+    <view class='featured-image'>
+      <image src='/images/news.png' mode='aspectFill'></image>
+    </view>
+    <view class='featured-tag'>热门</view>
+    <view class='featured-text'>
+    <view class='featured-title'>官湖村陈生：上北大车票是乡亲凑的，赠别墅遇尴尬两年没回乡</view>
+    <view class='featured-info'>
+      <view class='featured-source'>上游新闻</view>
+      <view class='featured-time'>10:20</view>
+    </view>
+    </view>
+  </view>
+</view>
+
+<scroll-view scroll-y>
+<view class='news-item' wx:for='{{newsList}}'>
+  <view class='news-wrapper'>
+    <view class='text'>
+      <view class='title'>{{item.title}}</view>
+        <view class='source'>{{item.source}}</view>
+        <view class='date'>{{item.date}}</view>
+    </view>
+  </view>
+  <image class='news-icon' src='{{item.image}}'></image>
+</view> 
+</scroll-view>
