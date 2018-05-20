@@ -1,0 +1,40 @@
+.title{
+  text-align: left;
+  font-size: 50rpx;
+  line-height: 70rpx;
+  opacity: 0.8;
+  margin-left: 40rpx;
+  margin-right: 20rpx;
+}
+
+.info{
+  display: flex;
+  opacity: 0.5;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  margin-top: 50rpx;
+}
+
+.source{
+  text-align: left;
+  margin-right: 40rpx;
+}
+
+.time{
+  margin-left: 100rpx;
+}
+
+.readCount{
+  margin-left: 150rpx;
+}
+
+.content{
+  font-size: 40rpx;
+  line-height: 56rpx;
+  opacity: 0.7;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  margin-top: 60rpx;
+}

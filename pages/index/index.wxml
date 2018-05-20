@@ -1,5 +1,5 @@
 <view class='type' >
-  <view class='type-item' wx:for='{{[1,2,3,4,5,6,7]}}'>国内</view>
+  <view class='type-item' wx:for='{{newsType}}' bindtap='onTapType'>{{item}}</view>
 </view>
 
 <view class='body'>
@@ -19,12 +19,12 @@
 </view>
 
 <scroll-view scroll-y>
-<view class='news-item' wx:for='{{newsList}}'>
+<view class='news-item' wx:for='{{newsList}}' bindtap='onTapDetail'>
   <view class='news-wrapper'>
     <view class='text'>
       <view class='title'>{{item.title}}</view>
         <view class='source'>{{item.source}}</view>
-        <view class='date'>{{item.date}}</view>
+        <view class='date'>{{item.time}}</view>
     </view>
   </view>
   <image class='news-icon' src='{{item.image}}'></image>

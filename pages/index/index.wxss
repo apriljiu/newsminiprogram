@@ -86,8 +86,8 @@
 }
 
 .title{
-  font-size: 35rpx;
-  line-height: 49rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
 }
 
 .date{

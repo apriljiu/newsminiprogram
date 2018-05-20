@@ -1,0 +1,7 @@
+<view class='title'>{{detailTitle}}</view>
+<view class='info'>
+  <view class='source'>{{detailSource}}</view>
+  <view class='time'>{{detailTime}}</view>
+  <view class='readCount'>阅读 {{detailReadCount}}</view>
+</view>
+<view class='content'>content</view>
