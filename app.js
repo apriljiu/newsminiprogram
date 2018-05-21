@@ -16,14 +16,14 @@ App({
       },
       success: res => {
         let result = res.data.result
-        that.globalData.newsId = newsIdList.id
         this.setNewsIdList(result)
+        that.globalData.newsId = newsIdList.id
       },
       setNewsIdList(result){
         let newsIdList = []
         for (let i = 0; i < newsIdList.length; i++){
           newsIdList.push({
-            id: result[i].id,
+            id: result[i].id
           })
           this.setData({
             newsIdList
