@@ -1,4 +1,6 @@
 const app = getApp()
+let NEWSID = 0
+
 Page({
   data: {
     detailTitle: 'this is a title',
@@ -7,16 +9,16 @@ Page({
     detailReadCount: 23, 
   },
 
-  onLoad: function (option) {
-    console.log(option.id)
-    this.getNewsDetail()
+  onLoad: function (options) {
+    NEWSID = options.id
+    this.getNewsDetail(NEWSID)
   },
 
   getNewsDetail(){
     wx.request({
       url: 'https://test-miniprogram.com/api/news/detail',
       data: {
-        id: 1523074607654
+        id: NEWSID
       },
       success: res => {
         let result = res.data.result

@@ -1,4 +1,6 @@
+const app = getApp()
 let TYPEID = 0
+let NEWSID = 0
 
 Page({
   data:{
@@ -10,39 +12,36 @@ Page({
       {id: 'js', name: '军事'},
       {id: 'ty', name: '体育'},
       {id: 'other', name: '其他'}],
-      currentTab:'gn',
-    newsList: [],
+    currentTab:'gn',
+    newsList: []
   },
 
-  onLoad(){
-    this.getNewsList()
-  },
+  
 //点击选择新闻类型
   onTapType(event){
     TYPEID = event.currentTarget.dataset.id
+    console.log(event)
+    this.setData({
+      currentTab: TYPEID
+    })
     this.getNewsList(TYPEID)
   },
-//点击跳转详情页面
-  onTapDetail(event) {
-    let id = event.currentTarget.dataset.id
-    let newsType = this.data.newsType[TYPEID].id
-    console.log(id, newsType)
-    wx.navigateTo({
-      url: '/pages/content/content?id=' + id + '&type=' + newsType
-    })
-  },
+
 //设置下拉刷新
   onPullDownRefresh() {
     this.getNewsList(() => {
       wx.stopPullDownRefresh()
     })
   },
+  onLoad() {
+    this.getNewsList()
+  },
 //获取新闻列表信息
   getNewsList(callback){
     wx.request({
   url:'https://test-miniprogram.com/api/news/list',
       data:{
-        'type': this.data.newsType[TYPEID].id
+        'type': this.data.currentTab
       },
       success: res =>{
         let result = res.data.result
@@ -63,11 +62,20 @@ Page({
         time: result[i].date.split('T')[1].split(':')[0] + ':' + result[i].date.split('T')[1].split(':')[1],
         source: result[i].source == '' ? '未知来源' : result[i].source,
         image: result[i].firstImage = "" ? '/images/news.png' : result[i].firstImage,
-        newsListId: result[i].id
+        newsId: result[i].id
       })
     }
     this.setData({
       newsList:newsList
+    })
+  },
+  
+  
+  //点击跳转详情页面
+  onTapDetail(event) {
+    NEWSID = event.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/content/content?id='+NEWSID
     })
   },
 })
