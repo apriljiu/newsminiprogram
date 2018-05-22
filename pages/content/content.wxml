@@ -4,4 +4,12 @@
   <view class='time'>{{detailTime}}</view>
   <view class='readCount'>阅读 {{detailReadCount}}</view>
 </view>
-<view class='content'>content</view>
+<view class='content'>
+  <view wx:for='{{detailContent}}' wx:key='{{item.id}}'>
+     <view class='paragraph-content' wx:if='{{item.type == "p"}}' >{{item.text}}</view>
+     <view class='paragraph-subtitle' wx:if='{{item.type == "strong"}}' >{{item.text}}</view>
+    <block wx:if='{{item.type=="image"}}' > 
+      <image class='content-image' src='{{item.src}}' ></image>
+    </block>   
+  </view>
+</view>

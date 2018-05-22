@@ -1,6 +1,6 @@
-const app = getApp()
 let TYPEID = 0
 let NEWSID = 0
+//不知道为什么放到data里就不管用了
 
 Page({
   data:{
@@ -16,7 +16,6 @@ Page({
     newsList: []
   },
 
-  
 //点击选择新闻类型
   onTapType(event){
     TYPEID = event.currentTarget.dataset.id
@@ -36,6 +35,7 @@ Page({
   onLoad() {
     this.getNewsList()
   },
+
 //获取新闻列表信息
   getNewsList(callback){
     wx.request({
@@ -52,6 +52,7 @@ Page({
       },
     })
   },
+
 //从新闻列表中获取新闻标题，时间，来源及图片
   setNewsList(result){
     let newsList = []
@@ -70,8 +71,7 @@ Page({
     })
   },
   
-  
-  //点击跳转详情页面
+  //点击跳转详情页面并传递参数
   onTapDetail(event) {
     NEWSID = event.currentTarget.dataset.id
     wx.navigateTo({
